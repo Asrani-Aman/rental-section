@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SearchBox from "../search-box/searchBox.component";
 import RentalCard from "../Card/Card";
 import styled from "styled-components";
-
+import "./rental.css";
 const CardContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
