@@ -7,7 +7,10 @@ import ShopSection from "./components/shopSection/ShopSection";
 import Contact from "./components/Contact Us/contact";
 import { ThemeProvider } from "styled-components";
 // import { GlobalStyle } from "./globalstyle";
-
+import Nav from "./components/rentalSection/Navbar/nav";
+import Footer from "./components/Footer/Footer";
+import SingleProduct from "./components/shopSection/SingleShop";
+import { AppProvider } from "./context/productcontext";
 function App() {
   const theme = {
     colors: {
@@ -49,7 +52,12 @@ function App() {
     <div className="app">
       <ThemeProvider theme={theme}>
         {/* <RentalSection /> */}
+        {/* <Nav />
         <Contact />
+        <Footer /> */}
+        <AppProvider>
+          <SingleProduct />
+        </AppProvider>
       </ThemeProvider>
     </div>
   );
