@@ -24,10 +24,8 @@ const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
 
-  console.log(getSingleProduct);
-  console.log(isSingleLoading);
   console.log(singleProduct);
-  const { id } = useParams();
+  // const { id } = useParams();
 
   const {
     id: alias,
@@ -42,9 +40,10 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
 
-  console.log(id);
 
   useEffect(() => {
+    const id = "thapaserialnoa";
+
     getSingleProduct(`${API}?id=${id}`);
   }, []);
 
@@ -55,6 +54,74 @@ const SingleProduct = () => {
   return (
     <Wrapper>
       <PageNavigation title={name} />
+     <Container className="container">
+       <div className="grid grid-two-column">
+         {/* product Images  */}
+         <div className="product_images">
+           <MyImage imgs={image} />
+         </div>
+
+
+         {/* product dAta  */}
+         <div className="product-data">
+           <h2>{name}</h2>
+           <Star stars={stars} reviews={reviews} />
+
+
+           <p className="product-data-price">
+             MRP:
+             <del>
+               <FormatPrice price={price + 250000} />
+             </del>
+           </p>
+           <p className="product-data-price product-data-real-price">
+             Deal of the Day: <FormatPrice price={price} />
+           </p>
+           <p>{description}</p>
+           <div className="product-data-warranty">
+             <div className="product-warranty-data">
+               <TbTruckDelivery className="warranty-icon" />
+               <p>Free Delivery</p>
+             </div>
+
+
+             <div className="product-warranty-data">
+               <TbReplace className="warranty-icon" />
+               <p>30 Days Replacement</p>
+             </div>
+
+
+             <div className="product-warranty-data">
+               <TbTruckDelivery className="warranty-icon" />
+               <p>Thapa Delivered </p>
+             </div>
+
+
+             <div className="product-warranty-data">
+               <MdSecurity className="warranty-icon" />
+               <p>2 Year Warranty </p>
+             </div>
+           </div>
+
+
+           <div className="product-data-info">
+             <p>
+               Available:
+               <span> {stock > 0 ? "In Stock" : "Not Available"}</span>
+             </p>
+             <p>
+               ID : <span> { "thapaserialnoa"} </span>
+             </p>
+             <p>
+               Brand :<span> {company} </span>
+             </p>
+           </div>
+           <hr />
+           {stock > 0 && <AddToCart product={singleProduct} />}
+         </div>
+       </div>
+     </Container>
+
     </Wrapper>
   );
 };

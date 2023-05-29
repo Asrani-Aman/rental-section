@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import "./card.css";
+import { Link } from "react-router-dom";
 
 const Card = styled.div`
   display: inline-flex;
@@ -37,13 +38,13 @@ const RentalCard = (props) => {
           <div className="cardss">
             <div className="rental-cards">
               <div className="card-img">
-                <a href="#">
+                <Link to={`/products/${rental._id}`}>
                   <Image
                     className="rounded-t-lg"
                     src={rental.images[0].url}
                     alt={rental.title}
                   />
-                </a>
+                </Link>
               </div>
               <div className="card-content">
                 <h2 className="card-title"> {rental.title}</h2>

@@ -42,22 +42,24 @@ function App() {
     //   <RentalSection />
     //   <ShopSection />
 
-    //   {/* <Routes>
-    //     <Route path="/" element={<RentalSection />} />
-    //     <Route path="/about" element={<ShopSection />} />
-    //     <Route path="/products" element={<Contact />} />
-    //   </Routes> */}
+  
     //   {<Contact />}
     // </ThemeProvider>
     <div className="app">
       <ThemeProvider theme={theme}>
         {/* <RentalSection /> */}
-        {/* <Nav />
-        <Contact />
-        <Footer /> */}
+        {/* <Nav /> */}
         <AppProvider>
+          {/* <Routes>
+            <Route path="/" element={<RentalSection />} />
+            <Route path="/about" element={<ShopSection />} />
+            <Route path="/products" element={<Contact />} />
+            <Route path="/products/:id" element={<SingleProduct />} />
+          </Routes>  */}
           <SingleProduct />
         </AppProvider>
+        {/* <Contact /> */}
+        {/* <Footer /> * */}
       </ThemeProvider>
     </div>
   );
